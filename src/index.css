@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,12 +15,15 @@ body {
   font-size: 16px;
   line-height: 22px;
   color: #151718;
+  background: #fff;
 }
 
 .app-container {
-  max-width: 1024px;
+  max-width: 1036px;
   width: 100%;
   margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 h1,
@@ -29,10 +34,11 @@ h5,
 h6 {
   font-weight: 600;
   line-height: 40px;
+  color: #0d1011;
 }
 
 input {
-  width: 100%;
+  /* width: 100%; */
 }
 
 input:focus {
@@ -41,11 +47,12 @@ input:focus {
 
 .btn {
   width: 100%;
-  padding: 16px;
+  padding: 16px 40px;
   border-radius: 32px;
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
+  /* white-space: nowrap; */
 }
 
 .pry-btn {
@@ -60,8 +67,17 @@ input:focus {
   color: #0d1011;
 }
 
+.hero-text {
+  font-family: "Ubuntu", sans-serif !important;
+  font-weight: 700;
+  line-height: 69px;
+}
 
-@media screen and (max-width: 1024px) {
+.font-ubuntu {
+  font-family: "Ubuntu", sans-serif !important;
+}
+
+@media screen and (max-width: 1036px) {
   .app-container {
     padding-left: 36px;
     padding-right: 36px;
@@ -69,77 +85,29 @@ input:focus {
 }
 @media screen and (max-width: 768px) {
   .app-container {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
-}
 
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+  .sub-title_01 {
+    font-size: 20px;
+    line-height: 24px;
   }
-  a:hover {
-    color: #747bff;
+  .hero-text {
+    line-height: 45px;
   }
-  button {
-    background-color: #f9f9f9;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 30px;
   }
-} */
+
+  .btn {
+    padding: 9px 22px;
+  }
+  
+}

@@ -4,10 +4,10 @@ const WhoWeAre = () => {
   return (
     <>
       <main className="app-container py-[60px]">
-        <h3 className="mb-[66px] text-[40px] lg:text-left text-center">Who we are</h3>
+        <h3 className="lg:mb-[66px] mb-[40px] lg:text-[40px] text-[30px] lg:text-left text-center">Who we are</h3>
 
         <div className="flex lg:flex-row flex-col items-center justify-between">
-          <article className="lg:mr-[113px] mr-[0] lg:text-left text-center">
+          <article className="lg:w-[50%] w-full lg:mr-[120px] mr-[0] lg:text-left text-center">
             <p className="mb-[22px]">
               We are a dedicated group of passionate youth working tirelessly to
               breakdown the barriers and eradicate the stigma surrounding mental
@@ -21,11 +21,11 @@ const WhoWeAre = () => {
             <p className="mb-[22px]">
               We firmly believe that every individual deserves compassion,
               understanding and access to the support they need for their mental
-              well- being.
+              well-being.
             </p>
           </article>
 
-          <article>
+          <article className="lg:w-[40%] w-full">
             <div className="rounded-[10px] p-[20px] border border-[#D3D7D7] mb-[24px] lg:text-left text-center">
                 <p className="sub-title_01">Our Mission</p>
                 <p className="mt-[16px]">To empower individuals across Nigeria to prioritise their mental health and embrace a life of emotional well being.</p>
