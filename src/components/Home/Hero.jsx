@@ -5,7 +5,7 @@ import JoinWaitListBtn from "../JoinWaitListBtn";
 const Header = () => {
   return (
     <>
-      <main className="app-container relative lg:py-[160px] md:[140px] py-[110px]">
+      <main className="app-container relative lg:pt-[140px] md:pt-[120px] pt-[110px] pb-[60px]">
         <div className="flex lg:flex-row flex-col items-center justify-center">
           <div className="lg:w-[50%] w-full lg:mr-[65px] mr-[0] flex flex-col lg:items-start items-center lg:text-left text-center">
             <h1 className="mb-[32px] lg:text-[60px] text-[40px] hero-text">
