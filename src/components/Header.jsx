@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/sante-logo.png";
-import JoinWaitListBtn from "./JoinWaitListBtn";
+// import JoinWaitListBtn from "./JoinWaitListBtn";
 
 const Header = () => {
   return (
@@ -11,7 +11,9 @@ const Header = () => {
             <img src={logo} alt="logo" />
           </div>
           <div className="">
-            <JoinWaitListBtn/>
+            <button type="button" className="btn pry-btn py-[12px]">
+              <a className="w-full" href="#waitlist-section">Join our waitlist</a>
+            </button>
           </div>
         </div>
       </main>

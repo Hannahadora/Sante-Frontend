@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "../style/footer.css";
 import logo from "../assets/sante-logo.png";
+import { database } from "../firebase";
+import { ref, push, child, update } from "firebase/database";
+
 // import { Link } from "react-router-dom";
 
 // import google_icon from "../assets/devicon_google.png"
@@ -8,6 +11,39 @@ import logo from "../assets/sante-logo.png";
 // import twitter_icon from "../assets/devicon_twitter.png"
 
 const Footer = () => {
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    const newPostKey = push(child(ref(database), "posts")).key;
+    const updates = {};
+    updates["/subscribers" + newPostKey] = formData;
+
+    setTimeout(() => {
+      alert("Thank you for subscribing!!! 👍");
+      setIsSubmitting(false);
+      setFormData({
+        ...formData,
+        username: "",
+        email: "",
+      });
+    }, 3000);
+
+    return update(ref(database), updates);
+  };
+
   return (
     <main className="bg-[#F8FAFC]">
       <section className="app-container lg:pt-[66px] pt-[40px] lg:pb-[86px] pb-[60px]">
@@ -16,22 +52,29 @@ const Footer = () => {
             Subscribe to our <br />
             newsletter
           </h3>
-          <form className="xl:w-auto lg:w-[60%] w-[80%] lg:grid flex flex-col items-center justify-center grid-cols-3 lg:space-x-[15px] space-x-0 lg:space-y-0 space-y-[16px]">
+          <form
+            onSubmit={handleSubmit}
+            className="xl:w-auto lg:w-[60%] w-[80%] lg:grid flex flex-col items-center justify-center grid-cols-3 lg:space-x-[15px] space-x-0 lg:space-y-0 space-y-[16px]"
+          >
             <input
-              placeholder="First name"
+              placeholder="Full name"
               className="xl:w-auto w-full footer-input"
               type="text"
-              name="firstName"
-              id=""
+              name="username"
+              required
+              onChange={handleChange}
             />
             <input
               placeholder="Email address"
               className="xl:w-auto w-full footer-input"
               type="text"
-              name="emailAddress"
-              id=""
+              name="email"
+              required
+              onChange={handleChange}
             />
-            <button className="btn pry-btn lg:ml-[16px] ml-[0]">Subscribe</button>
+            <button type="submit" className="btn pry-btn lg:ml-[16px] ml-[0]" disabled={isSubmitting}>
+              {isSubmitting ? "Processing" : "Subscribe"}
+            </button>
           </form>
         </div>
 
@@ -69,7 +112,9 @@ const Footer = () => {
           <div className="flex items-center justify-center">
             <img src={logo} alt="logo" />
           </div>
-            <p className="text-[14px] text-center text-[#71717A]">© Copyright {new Date().getFullYear()}, All Rights Reserved </p>
+          <p className="text-[14px] text-center text-[#71717A]">
+            © Copyright {new Date().getFullYear()}, All Rights Reserved{" "}
+          </p>
         </div>
       </section>
     </main>
